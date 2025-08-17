@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Express</title>
+  <meta charset="UTF-8">
+  <title>Students</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: darkblue; }
+    .student { border: 1px solid #ccc; padding: 10px; margin: 5px 0; }
+    button { margin-left: 5px; }
+  </style>
 </head>
 <body>
-    <h1>Welcome to the Backend Session</h1>
+  <h1> Students</h1>
+
+  <h3>Add Student</h3>
+  <form id="studentForm">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="text" id="age" placeholder="Age" required>
+    <button type="submit">Add</button>
+  </form>
+
+  <h3>Find Student by ID</h3>
+  <input type="number" id="searchId" placeholder="Enter ID">
+  <button onclick="findStudent()">Search</button>
+  <div id="singleStudent"></div>
+
+  <h3>All Students</h3>
+  <div id="studentList"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
