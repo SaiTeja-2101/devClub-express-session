@@ -33,7 +33,7 @@ let students = [
 
 // ---------------------- CRUD Operations ----------------------
 
-// ✅ CREATE a student (POST /api/students)
+//CREATE a student (POST /api/students)
 app.post("/api/students", (req, res) => {
   const newStudent = {
     id: students.length + 1,
@@ -44,30 +44,29 @@ app.post("/api/students", (req, res) => {
   res.status(201).json(newStudent);
 });
 
-// ✅ READ all students (GET /api/students)
+//READ all students (GET /api/students)
 app.get("/api/students", (req, res) => {
   res.json(students);
 });
 
-// ✅ READ single student by id (GET /api/students/:id)
+//READ single student by id (GET /api/students/:id)
 app.get("/api/students/:id", (req, res) => {
   const student = students.find(s => s.id === parseInt(req.params.id));
   if (!student) return res.status(404).json({ message: "Student not found" });
   res.json(student);
 });
 
-// ✅ UPDATE a student (PUT /api/students/:id)
+//UPDATE a student (PUT /api/students/:id)
 app.put("/api/students/:id", (req, res) => {
   const studentIndex = students.findIndex(s => s.id === parseInt(req.params.id));
   if (studentIndex === -1) return res.status(404).json({ message: "Student not found" });
 
-  // Replace the whole object (you may want to force id consistency)
   students[studentIndex] = { ...req.body, id: parseInt(req.params.id) };
   res.json(students[studentIndex]);
 });
 
 
-// ✅ DELETE a student (DELETE /api/students/:id)
+//DELETE a student (DELETE /api/students/:id)
 app.delete("/api/students/:id", (req, res) => {
   const studentIndex = students.findIndex(s => s.id === parseInt(req.params.id));
   if (studentIndex === -1) return res.status(404).json({ message: "Student not found" });
